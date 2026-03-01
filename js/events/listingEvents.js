@@ -212,7 +212,9 @@ export function attachCreateListingFormEvents(refs) {
       showMessage(messageContainer, "Listing created. Redirecting...", "success");
       const id = created?.id;
       setTimeout(() => {
-        window.location.href = id ? `/listing/index.html?id=${id}` : "/listings";
+        window.location.href = id
+          ? `/SP2-Auction-House/listing/index.html?id=${id}`
+          : "/SP2-Auction-House/listings/";
       }, 450);
     } catch (error) {
       showMessage(messageContainer, error.message, "error");

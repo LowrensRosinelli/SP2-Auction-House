@@ -104,7 +104,7 @@ async function loadListing() {
           await loadListing();
         },
         onDeleted: () => {
-          window.location.href = "/profile";
+          window.location.href = "/SP2-Auction-House/profile/";
         }
       });
     }
@@ -121,6 +121,5 @@ async function refreshCredits() {
     setProfile(freshProfile);
     refreshShellProfile(freshProfile);
   } catch {
-    // Keep listing flow working even if credits refresh fails.
   }
 }

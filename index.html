@@ -7,26 +7,26 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=DM+Serif+Display:opsz@9..40&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="/dist/styles.css" />
+    <link rel="stylesheet" href="/SP2-Auction-House/dist/styles.css" />
   </head>
   <body class="app-shell">
     <header class="app-nav">
       <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
-        <a href="/listings" class="font-serif text-4xl leading-none tracking-tight">Auction House</a>
+        <a href="/SP2-Auction-House/listings/" class="font-serif text-4xl leading-none tracking-tight">Auction House</a>
         <button id="mobileMenuBtn" class="listings-nav-link md:hidden" type="button" aria-expanded="false" aria-controls="mobileMenu">Menu</button>
         <nav class="hidden items-center gap-8 md:flex">
-          <a class="listings-nav-link" href="/listings">Browse</a>
-          <a class="listings-nav-link" href="/profile">My Bids</a>
-          <a class="listings-nav-link" href="/create">Sell</a>
+          <a class="listings-nav-link" href="/SP2-Auction-House/listings/">Browse</a>
+          <a class="listings-nav-link" href="/SP2-Auction-House/profile/">My Bids</a>
+          <a class="listings-nav-link" href="/SP2-Auction-House/create/">Sell</a>
           <span id="globalCredits" class="text-xs font-medium uppercase tracking-[0.12em] text-[color:var(--muted)] hidden">Credits: 0</span>
           <button id="logoutBtnDesktop" class="listings-nav-link hidden" type="button">Logout</button>
         </nav>
       </div>
       <div id="mobileMenu" class="hidden border-t border-[color:var(--border-soft)] bg-[color:var(--surface)] px-4 py-4 md:hidden">
         <div class="flex flex-col gap-3">
-          <a class="listings-nav-link" href="/listings">Browse</a>
-          <a class="listings-nav-link" href="/profile">My Bids</a>
-          <a class="listings-nav-link" href="/create">Sell</a>
+          <a class="listings-nav-link" href="/SP2-Auction-House/listings/">Browse</a>
+          <a class="listings-nav-link" href="/SP2-Auction-House/profile/">My Bids</a>
+          <a class="listings-nav-link" href="/SP2-Auction-House/create/">Sell</a>
           <span id="globalCreditsMobile" class="text-xs font-medium uppercase tracking-[0.12em] text-[color:var(--muted)] hidden">Credits: 0</span>
           <button id="logoutBtnMobile" class="listings-nav-link hidden text-left" type="button">Logout</button>
         </div>
@@ -77,7 +77,6 @@
       </section>
     </main>
 
-    <script src="/js/runtime-config.js"></script>
-    <script type="module" src="/js/pages/login.js"></script>
+    <script type="module" src="/SP2-Auction-House/js/pages/login.js"></script>
   </body>
 </html>

@@ -49,7 +49,7 @@ async function loadProfilePage(profileName, messageContainer) {
     fillProfileForm(profile);
 
     myListingsBox.innerHTML = Array.isArray(myListings) && myListings.length
-      ? myListings.map((listing) => `<a class="list-link" href="/listing/index.html?id=${listing.id}">${listing.title}</a>`).join("")
+      ? myListings.map((listing) => `<a class="list-link" href="/SP2-Auction-House/listing/index.html?id=${listing.id}">${listing.title}</a>`).join("")
       : '<p class="text-sm muted-copy">No listings yet.</p>';
 
     const bidListings = Array.isArray(bidOnListings) ? bidOnListings.map((bid) => bid.listing || bid) : [];
@@ -57,7 +57,7 @@ async function loadProfilePage(profileName, messageContainer) {
 
     bidOnListingsBox.innerHTML = validBidListings.length
       ? validBidListings
-          .map((listing) => `<a class="list-link" href="/listing/index.html?id=${listing.id}">${listing.title}</a>`)
+          .map((listing) => `<a class="list-link" href="/SP2-Auction-House/listing/index.html?id=${listing.id}">${listing.title}</a>`)
           .join("")
       : '<p class="text-sm muted-copy">No bids yet.</p>';
 

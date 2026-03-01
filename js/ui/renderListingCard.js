@@ -33,7 +33,7 @@ export function renderListingCard(listing) {
 
   return `
     <article class="lot-card">
-      <a class="lot-card-link" href="/listing/index.html?id=${listing.id}" aria-label="View details for ${title}">
+      <a class="lot-card-link" href="/SP2-Auction-House/listing/index.html?id=${listing.id}" aria-label="View details for ${title}">
         <div class="lot-media-wrap">
           ${isEnded ? '<span class="lot-ended-badge">Ended</span>' : ""}
           ${

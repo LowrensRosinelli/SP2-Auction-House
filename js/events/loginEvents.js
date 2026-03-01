@@ -45,7 +45,7 @@ export function attachLoginEvents(form, messageContainer) {
 
       showMessage(messageContainer, "Login successful. Redirecting...", "success");
       setTimeout(() => {
-        window.location.href = "/listings";
+        window.location.href = "/SP2-Auction-House/listings/";
       }, 400);
     } catch (error) {
       if (error.status === 401) {

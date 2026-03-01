@@ -1,74 +1,35 @@
-# SP2 Auction House (Vanilla JS + Tailwind)
+# SP2 Auction House
 
-## Run locally
-1. Install dependencies:
-   ```bash
-   npm install
-   ```
-2. Add your Noroff API key in terminal before running dev/build:
-   ```bash
-   export NOROFF_API_KEY="PASTE_REAL_KEY_HERE"
-   ```
-3. Start Tailwind watch mode while developing:
-   ```bash
-   npm run dev
-   ```
-4. Build production CSS:
-   ```bash
-   npm run build
-   ```
+SP2 Auction House is a student-only auction frontend made for Semester Project 2 at Noroff.
 
-`src/styles.css` is the Tailwind input, and `dist/styles.css` is generated output used by all HTML pages.
+The app uses the Noroff API v2 (Auction House) so a user can register, log in, create listings and place bids.
 
-## API key setup
-Do not commit a real API key.
+Live site:  
+https://lowrensrosinelli.github.io/SP2-Auction-House/
 
-- `npm run dev` and `npm run build` generate `js/runtime-config.js`.
-- The file reads `NOROFF_API_KEY` from environment and sets `window.__NOROFF_API_KEY__`.
-- If no key is set, a placeholder is written and protected endpoints will fail with API key error.
+## Features
 
-For Netlify:
-1. Go to `Site settings -> Environment variables`.
-2. Add `NOROFF_API_KEY` with your real value.
-3. Deploy again (build runs `npm run build`, which injects the key into `js/runtime-config.js`).
+Register a new user (using stud.noroff.no email)  
+Log in and keep the user stored in localStorage  
+View all listings  
+View a single listing with bid history  
+Create a new listing  
+Update and delete your own listings  
+Place bids on other users' listings  
+View your profile  
+See your available credits  
 
-`X-Noroff-API-Key` is sent on:
-- login/register requests
-- all requests where `auth: true` is used (profile, create/update/delete listing, bids)
+Visitors can:
+Browse listings  
+View listing details  
 
-`Authorization: Bearer <token>` is sent automatically on all requests where `auth: true` is used.
+Authentication is done with JWT (access token from the Noroff Auth API) together with an API key.
 
-## Troubleshooting
-If you see `No API key header was found` on Profile:
-1. Confirm `NOROFF_API_KEY` is set (locally or in Netlify env vars).
-2. Run a fresh build/deploy (`npm run build`).
-3. In browser DevTools Network, confirm request headers include `X-Noroff-API-Key`.
+## Tech stack
 
-## Git (first push)
-```bash
-git init
-git branch -M main
-git remote add origin https://github.com/LowrensRosinelli/SP2-Auction-House.git
-git add .
-git commit -m "Initial commit"
-git push -u origin main
-```
+HTML  
+Tailwind CSS v3 (built locally, no CDN)  
+Vanilla JavaScript (ES6 modules)  
+Noroff API v2 (Auth + Auction House)  
 
-Check that `node_modules` is not tracked:
-```bash
-git status --short
-```
-
-## Routes/pages
-- `/index.html` -> auth page (login + register)
-- `/listings` -> listings browse/search/filter/sort
-- `/listing/:id` -> listing detail + bid history (+ bid form for valid users)
-- `/profile` -> profile + credits + own listings + bid-on listings
-- `/create` -> create listing with dynamic media rows (7+ valid URLs)
-
-## Folder architecture
-- `js/api/*` fetch/data only
-- `js/ui/*` render/DOM updates only
-- `js/events/*` listeners + controller logic
-- `js/pages/*` per-page entrypoint
-- `js/utils/*` storage/guards/formatters
+No frontend frameworks (React, Vue, Angular) are used. :) 

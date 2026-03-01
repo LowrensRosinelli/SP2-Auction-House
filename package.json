@@ -4,9 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "predev": "node ./scripts/generate-runtime-config.mjs",
     "dev": "tailwindcss -i ./src/styles.css -o ./dist/styles.css --watch",
-    "prebuild": "node ./scripts/generate-runtime-config.mjs",
     "build": "tailwindcss -i ./src/styles.css -o ./dist/styles.css --minify"
   },
   "devDependencies": {

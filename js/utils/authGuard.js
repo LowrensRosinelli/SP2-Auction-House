@@ -1,6 +1,6 @@
 import { getToken } from "./storage.js";
 
-export function requireAuth(redirectTo = "/index.html") {
+export function requireAuth(redirectTo = "/SP2-Auction-House/index.html") {
   const token = getToken();
   if (!token) {
     window.location.href = redirectTo;
@@ -9,7 +9,7 @@ export function requireAuth(redirectTo = "/index.html") {
   return true;
 }
 
-export function requireGuest(redirectTo = "/listings") {
+export function requireGuest(redirectTo = "/SP2-Auction-House/listings/") {
   const token = getToken();
   if (token) {
     window.location.href = redirectTo;

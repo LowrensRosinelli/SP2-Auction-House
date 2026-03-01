@@ -1,4 +1,4 @@
-import { API_BASE_URL, API_KEY, HAS_REAL_API_KEY } from "../config.js";
+import { API_BASE_URL, API_KEY } from "../config.js";
 import { getToken } from "../utils/storage.js";
 
 function buildHeaders(customHeaders = {}, options = {}) {
@@ -8,7 +8,7 @@ function buildHeaders(customHeaders = {}, options = {}) {
     ...customHeaders
   };
 
-  if (includeApiKey && API_KEY && HAS_REAL_API_KEY) {
+  if (includeApiKey && API_KEY) {
     headers["X-Noroff-API-Key"] = API_KEY;
   }
 
@@ -62,7 +62,7 @@ export async function httpClient(path, options = {}) {
     query,
     headers,
     auth = false,
-    includeApiKey = auth
+    includeApiKey = true
   } = options;
 
   const response = await fetch(buildUrl(path, query), {

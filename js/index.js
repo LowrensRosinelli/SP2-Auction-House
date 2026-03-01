@@ -33,7 +33,7 @@ function attachLogout() {
 
     button.addEventListener("click", () => {
       clearAuth();
-      window.location.href = "/index.html";
+      window.location.href = "/SP2-Auction-House/index.html";
     });
   });
 }
