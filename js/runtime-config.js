@@ -1,0 +1,1 @@
+window.__NOROFF_API_KEY__ = "PASTE_NOROFF_API_KEY_HERE";

@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SP2 Auction House | Create Listing</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=DM+Serif+Display:opsz@9..40&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/dist/styles.css" />
+  </head>
+  <body class="app-shell">
+    <header class="app-nav">
+      <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
+        <a href="/listings" class="font-serif text-4xl leading-none tracking-tight">Auction House</a>
+        <button id="mobileMenuBtn" class="listings-nav-link md:hidden" type="button" aria-expanded="false" aria-controls="mobileMenu">Menu</button>
+        <nav class="hidden items-center gap-8 md:flex">
+          <a class="listings-nav-link" href="/listings">Browse</a>
+          <a class="listings-nav-link" href="/profile">My Bids</a>
+          <a class="listings-nav-link is-active" href="/create">Sell</a>
+          <span id="globalCredits" class="text-xs font-medium uppercase tracking-[0.12em] text-[color:var(--muted)] hidden">Credits: 0</span>
+          <button id="logoutBtnDesktop" class="listings-nav-link hidden" type="button">Logout</button>
+        </nav>
+      </div>
+      <div id="mobileMenu" class="hidden border-t border-[color:var(--border-soft)] bg-[color:var(--surface)] px-4 py-4 md:hidden">
+        <div class="flex flex-col gap-3">
+          <a class="listings-nav-link" href="/listings">Browse</a>
+          <a class="listings-nav-link" href="/profile">My Bids</a>
+          <a class="listings-nav-link is-active" href="/create">Sell</a>
+          <span id="globalCreditsMobile" class="text-xs font-medium uppercase tracking-[0.12em] text-[color:var(--muted)] hidden">Credits: 0</span>
+          <button id="logoutBtnMobile" class="listings-nav-link hidden text-left" type="button">Logout</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="container-main">
+      <section class="mx-auto max-w-3xl space-y-4">
+        <h1 class="page-heading">Create Listing</h1>
+        <p class="page-subtitle">Provide clear details and at least seven image URLs to publish your lot.</p>
+        <p class="text-sm muted-copy">Images: <span id="mediaCounter">1 images</span></p>
+        <div id="createListingMessage"></div>
+
+        <form id="createListingForm" class="section-card space-y-5" novalidate>
+          <div>
+            <label class="label" for="listingTitle">Title</label>
+            <input class="input" id="listingTitle" name="title" type="text" required minlength="3" maxlength="80" />
+          </div>
+
+          <div>
+            <label class="label" for="listingDeadline">Deadline</label>
+            <input class="input" id="listingDeadline" name="endsAt" type="datetime-local" required />
+            <p id="deadlineError" class="error-text"></p>
+          </div>
+
+          <div>
+            <label class="label" for="listingDescription">Description</label>
+            <textarea class="input min-h-28" id="listingDescription" name="description" maxlength="3000"></textarea>
+          </div>
+
+          <section class="space-y-3">
+            <div class="flex items-center justify-between">
+              <h2 class="font-serif text-3xl leading-none">Media Gallery</h2>
+              <button id="addMediaBtn" class="lot-link text-base" type="button">Add image URL</button>
+            </div>
+            <p class="text-xs muted-copy">Minimum 7 valid image URLs are required. Recommended up to 10.</p>
+            <div id="mediaInputsContainer" class="space-y-2"></div>
+            <p id="mediaError" class="error-text"></p>
+          </section>
+
+          <button class="btn-primary w-full" type="submit">Create Listing</button>
+        </form>
+      </section>
+    </main>
+
+    <script src="/js/runtime-config.js"></script>
+    <script type="module" src="/js/pages/createListing.js"></script>
+  </body>
+</html>

@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SP2 Auction House | Profile</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=DM+Serif+Display:opsz@9..40&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/dist/styles.css" />
+  </head>
+  <body class="app-shell">
+    <header class="app-nav">
+      <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
+        <a href="/listings" class="font-serif text-4xl leading-none tracking-tight">Auction House</a>
+        <button id="mobileMenuBtn" class="listings-nav-link md:hidden" type="button" aria-expanded="false" aria-controls="mobileMenu">Menu</button>
+        <nav class="hidden items-center gap-8 md:flex">
+          <a class="listings-nav-link" href="/listings">Browse</a>
+          <a class="listings-nav-link is-active" href="/profile">My Bids</a>
+          <a class="listings-nav-link" href="/create">Sell</a>
+          <span id="globalCredits" class="text-xs font-medium uppercase tracking-[0.12em] text-[color:var(--muted)] hidden">Credits: 0</span>
+          <button id="logoutBtnDesktop" class="listings-nav-link hidden" type="button">Logout</button>
+        </nav>
+      </div>
+      <div id="mobileMenu" class="hidden border-t border-[color:var(--border-soft)] bg-[color:var(--surface)] px-4 py-4 md:hidden">
+        <div class="flex flex-col gap-3">
+          <a class="listings-nav-link" href="/listings">Browse</a>
+          <a class="listings-nav-link is-active" href="/profile">My Bids</a>
+          <a class="listings-nav-link" href="/create">Sell</a>
+          <span id="globalCreditsMobile" class="text-xs font-medium uppercase tracking-[0.12em] text-[color:var(--muted)] hidden">Credits: 0</span>
+          <button id="logoutBtnMobile" class="listings-nav-link hidden text-left" type="button">Logout</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="container-main space-y-8">
+      <section>
+        <h1 class="page-heading">My Profile</h1>
+        <p class="page-subtitle">Track your published lots, bidding activity and credit balance.</p>
+      </section>
+      <section id="profileMessage"></section>
+      <section id="profileHeader"></section>
+      <section class="section-card space-y-4">
+        <h2 class="mb-2 font-serif text-3xl leading-none">Edit Profile</h2>
+        <form id="profileForm" class="grid gap-4 md:grid-cols-2" novalidate>
+          <div class="md:col-span-2">
+            <label class="label" for="profileBio">Bio</label>
+            <textarea class="input min-h-20" id="profileBio" name="bio" maxlength="160" placeholder="A short profile bio"></textarea>
+          </div>
+          <div>
+            <label class="label" for="profileAvatarUrl">Avatar URL</label>
+            <input class="input" id="profileAvatarUrl" name="avatarUrl" type="url" placeholder="https://example.com/avatar.jpg" />
+          </div>
+          <div>
+            <label class="label" for="profileAvatarAlt">Avatar alt</label>
+            <input class="input" id="profileAvatarAlt" name="avatarAlt" type="text" maxlength="120" placeholder="Avatar description" />
+          </div>
+          <div>
+            <label class="label" for="profileBannerUrl">Banner URL</label>
+            <input class="input" id="profileBannerUrl" name="bannerUrl" type="url" placeholder="https://example.com/banner.jpg" />
+          </div>
+          <div>
+            <label class="label" for="profileBannerAlt">Banner alt</label>
+            <input class="input" id="profileBannerAlt" name="bannerAlt" type="text" maxlength="120" placeholder="Banner description" />
+          </div>
+          <div class="md:col-span-2">
+            <button class="btn-primary" type="submit">Save profile</button>
+          </div>
+        </form>
+      </section>
+      <section class="grid gap-6 lg:grid-cols-2">
+        <article class="section-card">
+          <h2 class="mb-4 font-serif text-3xl leading-none">My Listings</h2>
+          <div id="myListings"></div>
+        </article>
+        <article class="section-card">
+          <h2 class="mb-4 font-serif text-3xl leading-none">Listings I Bid On</h2>
+          <div id="bidOnListings"></div>
+        </article>
+      </section>
+    </main>
+
+    <script src="/js/runtime-config.js"></script>
+    <script type="module" src="/js/pages/profile.js"></script>
+  </body>
+</html>

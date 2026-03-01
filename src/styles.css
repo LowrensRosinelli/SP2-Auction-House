@@ -1,0 +1,257 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg-warm: #f4f1ec;
+    --surface: #f8f5f0;
+    --fg: #2f3340;
+    --muted: #6f7482;
+    --border-soft: #d8d1c6;
+    --accent: #b85d3d;
+  }
+
+  body {
+    font-family: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+    color: var(--fg);
+    background: var(--bg-warm);
+  }
+}
+
+@layer components {
+  .app-shell {
+    @apply min-h-screen;
+    background: var(--bg-warm);
+    color: var(--fg);
+  }
+
+  .app-nav {
+    @apply sticky top-0 z-30 border-b bg-white/90 backdrop-blur;
+    border-color: var(--border-soft);
+    background-color: rgba(248, 245, 240, 0.95);
+  }
+
+  .container-main {
+    @apply mx-auto w-full max-w-6xl px-4 py-6 md:py-8;
+  }
+
+  .card {
+    @apply rounded-sm border bg-white p-5 shadow-sm;
+    border-color: var(--border-soft);
+    background: var(--surface);
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center rounded-sm px-4 py-2 text-sm font-medium transition focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2;
+  }
+
+  .btn-primary {
+    @apply btn text-white;
+    background: var(--accent);
+  }
+
+  .btn-primary:hover {
+    background: #a65337;
+  }
+
+  .btn-secondary {
+    @apply btn border bg-transparent hover:bg-stone-100;
+    border-color: var(--border-soft);
+    color: var(--fg);
+  }
+
+  .btn-danger {
+    @apply btn border bg-transparent hover:bg-stone-100;
+    border-color: var(--border-soft);
+    color: var(--fg);
+  }
+
+  .input {
+    @apply w-full border-0 border-b bg-transparent px-0 pb-2 pt-1 text-base shadow-none outline-none transition focus:ring-0;
+    border-color: var(--border-soft);
+    color: var(--fg);
+  }
+
+  .input::placeholder {
+    color: var(--muted);
+  }
+
+  .input:focus {
+    border-color: var(--accent);
+  }
+
+  .label {
+    @apply mb-2 block text-xs font-semibold uppercase tracking-[0.14em];
+    color: var(--muted);
+  }
+
+  .alert {
+    @apply rounded-lg border px-4 py-3 text-sm;
+  }
+
+  .badge {
+    @apply inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold;
+    background: #efe8dc;
+    color: #5e4f43;
+  }
+
+  .error-text {
+    @apply mt-1 text-xs text-rose-600;
+  }
+
+  .page-title {
+    font-family: "DM Serif Display", ui-serif, Georgia, serif;
+    @apply text-4xl font-normal leading-none tracking-tight md:text-6xl;
+  }
+
+  .page-subtitle {
+    @apply mt-3 max-w-xl text-base leading-relaxed;
+    color: var(--muted);
+  }
+
+  .listings-nav-link {
+    @apply text-sm font-medium transition hover:opacity-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-400 focus-visible:ring-offset-2;
+    color: var(--muted);
+  }
+
+  .listings-nav-link.is-active {
+    @apply opacity-100;
+    color: var(--fg);
+  }
+
+  .filter-label {
+    @apply mb-2 block text-xs font-semibold uppercase tracking-[0.14em];
+    color: var(--muted);
+  }
+
+  .filter-input {
+    @apply w-full border-0 border-b bg-transparent px-0 pb-2 pt-1 text-base outline-none transition focus:ring-0;
+    border-color: var(--border-soft);
+    color: var(--fg);
+  }
+
+  .filter-input::placeholder {
+    color: var(--muted);
+  }
+
+  .filter-input:focus {
+    border-color: var(--accent);
+  }
+
+  .filter-bar {
+    @apply border-b py-5;
+    border-color: var(--border-soft);
+  }
+
+  .filter-group {
+    @apply grid gap-4 md:grid-cols-[1fr_1.8fr_1fr_auto];
+  }
+
+  .lot-grid {
+    @apply grid gap-6 sm:grid-cols-2 lg:grid-cols-3;
+  }
+
+  .lot-card {
+    @apply overflow-hidden rounded-sm border bg-white transition hover:shadow-sm;
+    border-color: var(--border-soft);
+    background: var(--surface);
+  }
+
+  .lot-card-link {
+    @apply block h-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-400 focus-visible:ring-offset-2;
+  }
+
+  .lot-media-wrap {
+    @apply relative overflow-hidden bg-stone-200;
+  }
+
+  .lot-image {
+    @apply aspect-[4/5] w-full object-cover transition duration-300 ease-out;
+  }
+
+  .lot-card:hover .lot-image {
+    transform: scale(1.02);
+  }
+
+  .lot-placeholder {
+    @apply flex aspect-[4/5] w-full flex-col items-center justify-center gap-3 text-xs uppercase tracking-[0.14em];
+    color: var(--muted);
+    background: #ece7de;
+  }
+
+  .lot-ended-badge {
+    @apply absolute right-3 top-3 rounded-sm px-2 py-1 text-[10px] font-semibold uppercase tracking-[0.16em] text-white;
+    background: rgba(70, 73, 81, 0.75);
+  }
+
+  .lot-meta-label {
+    @apply text-[11px] font-semibold uppercase tracking-[0.14em];
+    color: var(--muted);
+  }
+
+  .lot-title {
+    font-family: "DM Serif Display", ui-serif, Georgia, serif;
+    @apply line-clamp-2 text-[34px] leading-none tracking-tight;
+  }
+
+  .lot-card-title {
+    font-family: "DM Serif Display", ui-serif, Georgia, serif;
+    @apply line-clamp-2 text-[2rem] leading-tight;
+    font-size: clamp(1.25rem, 2.6vw, 2rem);
+  }
+
+  .lot-link {
+    @apply inline-flex items-center text-lg font-medium transition hover:opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-400 focus-visible:ring-offset-2;
+    color: var(--accent);
+  }
+
+  .page-heading {
+    font-family: "DM Serif Display", ui-serif, Georgia, serif;
+    @apply text-4xl leading-none tracking-tight md:text-5xl;
+  }
+
+  .section-card {
+    @apply rounded-sm border p-5;
+    border-color: var(--border-soft);
+    background: var(--surface);
+  }
+
+  .muted-copy {
+    color: var(--muted);
+  }
+
+  .list-link {
+    @apply block border-b py-3 text-sm transition hover:opacity-80;
+    border-color: var(--border-soft);
+    color: var(--fg);
+  }
+
+  .list-link:last-child {
+    @apply border-b-0;
+  }
+
+  .profile-avatar {
+    @apply h-24 w-24 rounded-full border object-cover;
+    border-color: var(--border-soft);
+  }
+
+  .profile-banner {
+    @apply h-44 w-full object-cover;
+  }
+
+  .auction-detail-title {
+    font-family: "DM Serif Display", ui-serif, Georgia, serif;
+    @apply text-3xl leading-tight md:text-5xl;
+  }
+
+  .skeleton {
+    @apply animate-pulse rounded-sm bg-stone-300;
+  }
+
+  .empty-state {
+    @apply rounded-sm border border-dashed p-8 text-center;
+    border-color: var(--border-soft);
+    background: var(--surface);
+  }
+}

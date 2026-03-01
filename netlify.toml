@@ -1,0 +1,28 @@
+[build]
+command = "npm run build"
+publish = "."
+
+[[redirects]]
+from = "/listings"
+to = "/listings/index.html"
+status = 200
+
+[[redirects]]
+from = "/profile"
+to = "/profile/index.html"
+status = 200
+
+[[redirects]]
+from = "/create"
+to = "/create/index.html"
+status = 200
+
+[[redirects]]
+from = "/listing"
+to = "/listing/index.html"
+status = 200
+
+[[redirects]]
+from = "/listing/*"
+to = "/listing/index.html"
+status = 200
