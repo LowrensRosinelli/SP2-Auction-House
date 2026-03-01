@@ -4,10 +4,16 @@ const API_KEY_PLACEHOLDER = "PASTE_NOROFF_API_KEY_HERE";
 function readRuntimeApiKey() {
   if (typeof window === "undefined") return "";
 
-  const fromWindow = String(window.__NOROFF_API_KEY__ || "").trim();
+  const fromWindow = String(
+    window.__NOROFF_API_KEY__ || window.NOROFF_API_KEY || ""
+  ).trim();
   if (fromWindow && fromWindow !== API_KEY_PLACEHOLDER) return fromWindow;
 
-  const fromStorage = String(localStorage.getItem("noroff_api_key") || "").trim();
+  const fromStorage = String(
+    localStorage.getItem("noroff_api_key")
+    || localStorage.getItem("NOROFF_API_KEY")
+    || ""
+  ).trim();
   if (fromStorage && fromStorage !== API_KEY_PLACEHOLDER) return fromStorage;
 
   const fromMeta = String(

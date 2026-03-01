@@ -38,6 +38,12 @@ For Netlify:
 
 `Authorization: Bearer <token>` is sent automatically on all requests where `auth: true` is used.
 
+## Troubleshooting
+If you see `No API key header was found` on Profile:
+1. Confirm `NOROFF_API_KEY` is set (locally or in Netlify env vars).
+2. Run a fresh build/deploy (`npm run build`).
+3. In browser DevTools Network, confirm request headers include `X-Noroff-API-Key`.
+
 ## Git (first push)
 ```bash
 git init
